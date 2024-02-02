@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+</head>
+<body class="w3-light-grey">
+
+    <!-- !PAGE CONTENT! -->
+    <!-- Header -->
+    <header class="w3-container" style="padding-top:22px">
+        <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+    </header>
+
+    <div class="w3-row-padding w3-margin-bottom">
+        <div class="w3-quarter">
+            <div class="w3-container w3-red w3-padding-16">
+                <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h3>@ViewBag.MessageCount</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Mesajlar</h4>
+            </div>
+        </div>
+        <div class="w3-quarter">
+            <div class="w3-container w3-blue w3-padding-16">
+                <div class="w3-left"><i class="fa fa-tasks w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h3>@ViewBag.ProjectCount</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Projeler</h4>
+            </div>
+        </div>
+        <div class="w3-quarter">
+            <div class="w3-container w3-teal w3-padding-16">
+                <div class="w3-left"><i class="fa fa-filter w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h3>@ViewBag.CategoryCount</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Kategoriler</h4>
+            </div>
+        </div>
+        <div class="w3-quarter">
+            <div class="w3-container w3-orange w3-text-white w3-padding-16">
+                <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h3>@ViewBag.TestimonialCount</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Referanslar</h4>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+    <hr>
+    <div class="w3-container">
+        <h5>Genel İstatistikler</h5>
+        <p>Mesajlar</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-red" style="width:30%">@ViewBag.MessageCount</div>
+        </div>
+        <br />
+        <p>Projeler</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-blue" style="width:40%;">@ViewBag.ProjectCount</div>
+        </div>
+        <br />
+        <p>Kategoriler</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-teal" style="width:70%">@ViewBag.CategoryCount</div>
+        </div>
+        <br />
+        <p>Referanslar</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-orange" style="width:10%">@ViewBag.TestimonialCount</div>
+        </div>
+        <br />
+        <p>Okunmamış Mesajlar</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-red" style="width:30%">@ViewBag.isNotReadMessageCount</div>
+        </div>
+        <br />
+        <p>En Son Yapılan Proje</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-blue">@ViewBag.lastProjectName</div>
+        </div>
+        <br />
+        <p>Asp.Net MVC ile Yapılmış Proje Sayısı</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-teal" style="width:20%">@ViewBag.AspProjectCount</div>
+        </div>
+        <br />
+        <p>Sosyal Medya Hesap Sayısı</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-orange" style="width:60%;">@ViewBag.SocialMediaCount</div>
+        </div>
+        <br />
+        <p>Satış İçerik Sayısı</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-red" style="width:30%;">@ViewBag.PricingCount</div>
+        </div>
+        <br />
+        <p>Satışa Sunulan ilk İçerik</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-blue">@ViewBag.FirstPricingProject</div>
+        </div>
+        <br />
+        <p>Flutter ile ilgili Gelen Mesaj Sayısı</p>
+        <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-teal" style="width:30%">@ViewBag.MessageForFlutter</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <script>
+        var xValues = ["Asp.Net Mvc", "Mobil Uygulama", "Python", "JavaScript","Flutter"];
+        var yValues = [10, 5, 3, 4, 15];
+        var barColors = ["red", "green", "blue", "orange", "brown"];
+
+        new Chart("myChart", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "Proje-Kategori"
+                }
+            }
+        });
+    </script>
+
+
+</body>
+</html>

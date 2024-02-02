@@ -1,0 +1,16 @@
+﻿@model MeyawoPortfolio.Models.tblCategory
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<h2>Kategori Güncelleme</h2>
+<form method="post">
+    <label>Kategori Adı</label>
+    @Html.HiddenFor(x=>x.CategoryID)
+    @Html.TextBoxFor(x=>x.CategoryName,new  {@class="table table-hover" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+
+</form>
+

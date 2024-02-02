@@ -1,0 +1,29 @@
+﻿@model MeyawoPortfolio.Models.tblProject
+@{
+    ViewBag.Title = "UpdateProject";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<h2> Proje Güncelleme</h2>
+<form method="post">
+    @Html.HiddenFor(x => x.ProjectID)
+    <label>Proje Başlığı</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "table table-hover" })
+    <br />
+
+    <label>Proje Görsel Linki</label>
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "table table-hover" })
+    <br />
+
+    <label>Github Linki</label>
+    @Html.TextBoxFor(x => x.ProjectUrl, new { @class = "table table-hover" })
+    <br />
+    <label>Proje Kategorisi</label>
+    @Html.DropDownListFor(x => x.ProjectCategory, (List<SelectListItem>)ViewBag.v, new { @class = "table table-hover" })
+    <br />
+    <label>Açıklama</label>
+    @Html.TextAreaFor(x => x.Description, new { @class = "table table-hover" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>
+

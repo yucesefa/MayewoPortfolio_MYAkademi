@@ -1,0 +1,26 @@
+﻿@model MeyawoPortfolio.Models.tblPricing
+    @{
+        ViewBag.Title = "CreatePricing";
+        Layout = "~/Views/AdminLayout/_Layout.cshtml";
+    }
+
+    <h2>Yeni Fiyat Girişi</h2>
+    <form method="post">
+        <label>Başlık</label>
+        @Html.TextBoxFor(x => x.Title, new { @class = "table table-hover" })
+        <br />
+        <label>Açıklama</label>
+        @Html.TextAreaFor(x => x.Description, new { @class = "table table-hover" })
+        <br />
+        <label>Fiyat</label>
+        @Html.TextBoxFor(x => x.Price, new { @class = "table table-hover" })
+        <br />
+        <label>Fiyat Açıklaması</label>
+        @Html.TextAreaFor(x => x.PriceDescription, new { @class = "table table-hover" })
+        <br />
+        <label>Proje Görsel Linki</label>
+        @Html.TextBoxFor(x => x.ImageUrl, new { @class = "table table-hover" })
+        <br />
+        <button class="btn btn-info">Fiyatı Ekle</button>
+    </form>
+

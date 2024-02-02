@@ -1,0 +1,34 @@
+﻿@model List<MeyawoPortfolio.Models.tblPricing>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<h2>Fiyatlandırma Listesi</h2>
+
+<table class="table table-table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Fiyat</th>
+        <th>Fiyat Açıklaması</th>
+        <th>Görsel</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td>@item.Price</td>
+            <td>@item.PriceDescription</td>
+            <td>@item.ImageUrl</td>
+            <td><a href="/Pricing/DeletePricing/@item.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Pricing/UpdatePricing/@item.ID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Pricing/CreatePricing/" class=" btn btn-primary">Yeni Fiyat Girişi</a>

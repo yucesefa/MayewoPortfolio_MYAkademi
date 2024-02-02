@@ -1,0 +1,16 @@
+﻿@model List<MeyawoPortfolio.Models.tblSocialMedia>
+<div class="container">
+    <footer class="footer">
+        <p class="mb-0">
+            Sosyal Medya Hesaplarım
+        </p>
+        @foreach (var item in Model)
+        {
+            <div class="social-links text-left m-auto">
+                <a href="@item.SocialMediaUrl" class="link" style="width:50px; height:50px;"><img src="@item.Icon" class="testimonial-card-img" style="width:50px;height:50px;"/></a>
+                
+            </div>
+        }
+
+    </footer>
+</div>

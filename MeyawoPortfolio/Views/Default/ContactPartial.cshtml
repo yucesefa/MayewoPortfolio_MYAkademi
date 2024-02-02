@@ -1,0 +1,33 @@
+﻿﻿@model MeyawoPortfolio.Models.tblContact
+
+<section class="section" id="contact">
+    <div class="container text-center">
+        <p class="section-subtitle">Bana Ulaşın</p>
+        <h6 class="section-title mb-5">İletişim</h6>
+        <!-- contact form -->
+        @*<form action="" class="contact-form col-md-10 col-lg-8 m-auto">*@
+        @using (Html.BeginForm("CreateContact", "Contact", FormMethod.Post))
+        {
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    @Html.TextBoxFor(x => x.NameSurname, new { @class = "table table-hover", placeholder = "Adınız ve Soyadınız", size = "50", required = "required" })
+                    @*<input type="text" size="50" class="form-control" placeholder="Adınız" required>*@
+                </div>
+                <div class="form-group col-sm-6">
+                    @Html.TextBoxFor(x => x.Email, new { @class = "table table-hover", placeholder = "Email Adresiniz", required = "required" })
+                    @*<input type="email" class="form-control" placeholder="Email Adresiniz" requried>*@
+                </div>
+                <div class="form-group col-sm-12">
+                    @Html.TextAreaFor(x => x.Message, 7, 3, new { @class = "table table-hover", placeholder = "Birşeyler Yazın...", required = "required" })
+                    @*<textarea name="comment" id="comment" rows="6" class="form-control"
+                        placeholder="Birşeyler Yazın..."></textarea>*@
+                </div>
+                <div class="form-group col-sm-12 mt-3">
+                    <input type="submit" value="Mesaj Gönder" class="btn btn-outline-primary rounded">
+                </div>
+            </div>
+        }
+
+        @*</form>*@<!-- end of contact form -->
+    </div><!-- end of container -->
+</section>

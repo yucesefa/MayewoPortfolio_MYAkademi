@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+@Html.Partial("/Views/Default/HeadPartial.cshtml")
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page Navbar -->
+    @Html.Partial("/Views/Default/NavbarPartial.cshtml")
+    <!-- End of Page Navbar -->
+    <!-- page header -->
+    @Html.Action("HeaderPartial")
+    <!-- end of page header -->
+    <!-- about section -->
+    @Html.Action("AboutPartial")
+    <!-- end of about section -->
+    <!-- service section -->
+    @Html.Action("ServicePartial")
+    <!-- end of service section -->
+    <!-- portfolio section -->
+    @Html.Action("PortfolyoPartial")
+    <!-- end of portfolio section -->
+    <!-- pricing section -->
+    @Html.Action("PricingPartial")
+    <!-- end of pricing section -->
+    @Html.Action("TestimonialPartial")
+    <!-- section -->
+    <!--<section class="section-sm bg-primary">-->
+    <!-- container -->
+    <!--<div class="container text-center text-sm-left">-->
+    <!-- row -->
+    <!--<div class="row align-items-center">
+        <div class="col-sm offset-md-1 mb-4 mb-md-0">
+            <h6 class="title text-light">Want to work with me?</h6>
+            <p class="m-0 text-light">Always feel Free to Contact & Hire me</p>
+        </div>
+        <div class="col-sm offset-sm-2 offset-md-3">
+            <button class="btn btn-lg my-font btn-light rounded">Hire Me</button>
+        </div>
+    </div>-->
+    <!-- end of row -->
+    <!--</div>--> <!-- end of container -->
+    <!--</section>-->
+    <!-- end of section -->
+    <!-- testimonial section -->
+    <!-- end of testimonial section -->
+    <!-- contact section -->
+    @Html.Action("ContactPartial")
+    <!-- end of contact section -->
+    <!-- footer -->
+    @Html.Action("FooterPartial")
+    <!-- end of page footer -->
+    <!-- core  -->
+    <script src="~/Templates/meyawo-1.0.0/meyawo-1.0.0/assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="~/Templates/meyawo-1.0.0/meyawo-1.0.0/assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="~/Templates/meyawo-1.0.0/meyawo-1.0.0/assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Meyawo js -->
+    <script src="~/Templates/meyawo-1.0.0/meyawo-1.0.0/assets/js/meyawo.js"></script>
+
+</body>
+
+</html>

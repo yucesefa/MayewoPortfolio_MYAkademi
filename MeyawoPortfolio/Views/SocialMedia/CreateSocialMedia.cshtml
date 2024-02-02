@@ -1,0 +1,22 @@
+﻿@model MeyawoPortfolio.Models.tblSocialMedia
+@{
+    ViewBag.Title = "CreateSocialMedia";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<h2>Yeni Sosyal Medya Girişi</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.SocialMediaID)
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "table table-hover" })
+    <br />
+    <label>Link</label>
+    @Html.TextBoxFor(x => x.SocialMediaUrl, new { @class = "table table-hover" })
+    <br />
+    <label>İkon Dosya Yolu</label>
+    @Html.TextBoxFor(x => x.Icon, new { @class = "table table-hover" })
+    <br />
+    <button class="btn btn-info">Ekle</button>
+</form>
+

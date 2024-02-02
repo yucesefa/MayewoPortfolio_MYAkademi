@@ -1,0 +1,23 @@
+﻿@model MeyawoPortfolio.Models.tblSocialMedia
+@{
+    ViewBag.Title = "UpdateSocialMedia";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<h2>Sosyal Medya Güncelleme</h2>
+<form method="post">
+    @Html.HiddenFor(x => x.SocialMediaID)
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "table table-hover" })
+    <br />
+
+    <label>Link</label>
+    @Html.TextBoxFor(x => x.SocialMediaUrl, new { @class = "table table-hover" })
+    <br />
+
+    <label>İkon Dosya Yolu</label>
+    @Html.TextBoxFor(x => x.Icon, new { @class = "table table-hover" })
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+</form>
+

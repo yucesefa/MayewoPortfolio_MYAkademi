@@ -1,0 +1,51 @@
+﻿@model List<MeyawoPortfolio.Models.tblContact>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<h2>Gelen Mesajlar Sayfası</h2>
+
+<table class="table table-table table-hover">
+    <tr>
+        <th>Mesaj ID</th>
+        <th>Gonderen</th>
+        <th>Kategori</th>
+        <th>Tarih</th>
+        <th>Mesajı Aç</th>
+        <th>Mesajı Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (Model == null)
+        {
+            <h3>Şuanda gösterilecek mesajınız yok !</h3>
+        }
+        else
+        {
+            if (item.IsRead == true)
+            {
+                <tr>
+                    <td>@item.ContactID</td>
+                    <td>@item.NameSurname</td>
+                    <td>@item.MessageCategory</td>
+                    <td>@item.SendDate.Value.ToString("dd MMMM yyyy HH:mm")</td>
+                    <td><a href="/Contact/MessageDetail/@item.ContactID" class="btn btn-primary">Mesajı Aç</a></td>
+                    <td><a href="/Contact/DeleteMessage/@item.ContactID" class="btn btn-danger">Mesajı Sil</a></td>
+                </tr>
+            }
+            else
+            {
+                <tr style="font-weight: bold;">
+                    <td>@item.ContactID</td>
+                    <td><span class="fa fa-circle mr-3"></span>@item.NameSurname</td>
+                    <td>@item.MessageCategory</td>
+                    <td>@item.SendDate.Value.ToString("dd MMMM yyyy HH:mm")</td>
+                    <td><a href="/Contact/MessageDetail/@item.ContactID" class="btn btn-primary">Mesajı Aç</a></td>
+                    <td><a href="/Contact/DeleteMessage/@item.ContactID" class="btn btn-danger">Mesajı Sil</a></td>
+                </tr>
+            }
+        }
+    }
+</table>
+
